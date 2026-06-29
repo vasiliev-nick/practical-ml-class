@@ -47,3 +47,5 @@ makes a model. prints the accuracy.
 change MODEL inside taxi_model_FINAL.py to use a different model (rf/logreg/tree)
 
 ask the intern if something breaks
+
+Anyone here? 
