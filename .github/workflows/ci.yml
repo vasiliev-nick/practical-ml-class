@@ -1,0 +1,51 @@
+# .github/workflows/ci.yml
+# TaxiFlow continuous integration.
+#
+# Runs on every push and pull request to main and develop.
+# It REPORTS results (a green check or red X on the commit / PR) but is
+# NOT configured as a "required" check, so it never blocks a merge.
+# See the course notes: "warn, don't block".
+
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  # --- Does the project still run? (this should PASS) ------------------
+  smoke-test:
+    name: Smoke test (does it run?)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run the training script end-to-end
+        run: python taxi_model_FINAL.py
+
+  # --- Is the code clean? (this will WARN on the messy code) -----------
+  lint:
+    name: Lint (style check - warnings only)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Install ruff
+        run: pip install ruff
+      - name: Check code style
+        # No "|| true" here: we WANT a visible red X when the code is messy.
+        # Because this check is not marked "required" on GitHub, the red X is
+        # only a warning - it never blocks the merge.
+        run: ruff check .
