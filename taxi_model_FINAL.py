@@ -22,7 +22,7 @@ DATA_PATH = "data.csv"
 # DATA_PATH = "/home/alex/projects/taxi/data.csv"   # old path on my laptop
 MODEL = "rf"   # options: rf, logreg, tree
 THRESHOLD = 0.18   # tip threshold
-SPLIT = 0.8
+SPLIT = 0.7
 
 
 def do_everything():
