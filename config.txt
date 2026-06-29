@@ -1,0 +1,6 @@
+model=rf
+threshold=0.18
+split=0.8
+# NOTE: changing this file doesnt actually do anything,
+# you have to edit the values inside taxi_model_FINAL.py
+# (we'll fix that someday)

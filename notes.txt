@@ -1,0 +1,9 @@
+my notes
+--------
+- rf works best, logreg is bad for some reason
+- dont forget to change MODEL at the top of the file
+- the upload thing is broken, ask Sam about the dashboard endpoint
+- TODO: the cash trips never have tips, is that a bug?? look into it
+- the 0.73 number is just what we decided was "good enough" in the meeting
+- accuracy was 0.92 last time i ran it
+- remember to email the API key to the new person so they can run it
