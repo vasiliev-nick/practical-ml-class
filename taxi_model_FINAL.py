@@ -20,9 +20,9 @@ warnings.filterwarnings("ignore")   # who cares about warnings
 API_KEY = "sk-swifthail-FAKE-key-DO-NOT-USE-12345"   # for the dashboard upload thing
 DATA_PATH = "data.csv"
 # DATA_PATH = "/home/alex/projects/taxi/data.csv"   # old path on my laptop
-MODEL = "rf"   # options: rf, logreg, tree
-THRESHOLD = 0.18   # tip threshold
-SPLIT = 0.8
+MODEL = "tree"   # options: rf, logreg, tree
+THRESHOLD = 0.20  # tip threshold
+SPLIT = 0.77
 
 
 def do_everything():
@@ -138,7 +138,7 @@ def do_everything():
     print("accuracy:")
     print(acc)
     # is it good?
-    if acc > 0.73:
+    if acc > 0.75:
         print("model is good!")
     else:
         print("model is bad, try again")
@@ -163,7 +163,7 @@ def upload_to_dashboard(acc):
     # import requests
     # requests.post("https://dashboard.swifthail.io/api/v1/results",
     #               headers={"Authorization": API_KEY}, json={"acc": acc})
-    print("uploading... (not really)")
+    print("uploading... (not really, lol)")
 
 
 # run it
