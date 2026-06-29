@@ -16,13 +16,26 @@ from sklearn.metrics import accuracy_score
 import warnings
 warnings.filterwarnings("ignore")   # who cares about warnings
 
+def load_config(config_file="config.txt"):
+    config = {}
+    with open(config_file, "r") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#"):
+                key, value = line.split("=")
+                config[key.strip()] = value.strip()
+    return config
+
+# load the config
+config = load_config()
+
 # config (change these here)
-API_KEY = "sk-swifthail-FAKE-key-DO-NOT-USE-12345"   # for the dashboard upload thing
-DATA_PATH = "data.csv"
+API_KEY = config.get("api_key", "sk-swifthail-FAKE-key-DO-NOT-USE-12345")   # for the dashboard upload thing
+DATA_PATH = config.get("data_path", "data.csv")
 # DATA_PATH = "/home/alex/projects/taxi/data.csv"   # old path on my laptop
-MODEL = "rf"   # options: rf, logreg, tree
-THRESHOLD = 0.18   # tip threshold
-SPLIT = 0.8
+MODEL = config.get("model", "rf")   # options: rf, logreg, tree
+THRESHOLD = float(config.get("threshold", 0.18))   # tip threshold
+SPLIT = float(config.get("split", 0.8))
 
 
 def do_everything():
