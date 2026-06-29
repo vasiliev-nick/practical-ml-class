@@ -25,6 +25,7 @@ THRESHOLD = 0.18   # tip threshold
 SPLIT = 0.8
 
 
+
 def do_everything():
     # read the data
     df = pd.read_csv(DATA_PATH)
@@ -156,14 +157,6 @@ def do_everything():
 
     return acc
 
-
-def upload_to_dashboard(acc):
-    # this is supposed to upload to the swifthail dashboard
-    # but the endpoint is down so it doesnt work
-    # import requests
-    # requests.post("https://dashboard.swifthail.io/api/v1/results",
-    #               headers={"Authorization": API_KEY}, json={"acc": acc})
-    print("uploading... (not really)")
 
 
 # run it
