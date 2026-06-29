@@ -148,10 +148,14 @@ def do_everything():
 
     # ----- evaluate -----
     acc = accuracy_score(y_test, preds)
+    baseline_preds = np.zeros_like(y_test)
+    baseline_acc = accuracy_score(y_test, baseline_preds)
     print("accuracy:")
     print(acc)
+    print("baseline accuracy:")
+    print(baseline_acc)
     # is it good?
-    if acc > 0.73:
+    if acc > baseline_acc:
         print("model is good!")
     else:
         print("model is bad, try again")
