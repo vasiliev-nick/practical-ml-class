@@ -20,7 +20,7 @@ warnings.filterwarnings("ignore")   # who cares about warnings
 API_KEY = "sk-swifthail-FAKE-key-DO-NOT-USE-12345"   # for the dashboard upload thing
 DATA_PATH = "data.csv"
 # DATA_PATH = "/home/alex/projects/taxi/data.csv"   # old path on my laptop
-MODEL = "rf"   # options: rf, logreg, tree
+MODEL = "logreg"   # options: rf, logreg, tree
 THRESHOLD = 0.18   # tip threshold
 SPLIT = 0.8
 
