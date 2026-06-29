@@ -26,7 +26,7 @@ def helper():
     pass
 def calc_tip_pct(tip, fare):
     # calculate tip percentage
-    return tip / fare   # what if fare is 0 ??? whatever
+    return tip / fare if fare else 0.0  # what if fare is 0 ??? whatever
 
 
 MAGIC = 0.18   # the threshold (also defined in the main file, keep in sync manually)
