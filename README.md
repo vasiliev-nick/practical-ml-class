@@ -6,8 +6,8 @@ predicts high tip trips for swifthail.
 
 ### one-time: get the repo
 ```
-git clone https://github.com/YOUR-ORG/taxiflow-class.git
-cd taxiflow-class
+git clone https://github.com/vasiliev-nick/practical-ml-class.git
+cd practical-ml-class
 ```
 
 ### always start a feature FROM develop, never main
