@@ -1,0 +1,1 @@
+"If it works, it was the AI. If it crashes your database, it was also the AI, but I wrote the prompt."
