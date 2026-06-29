@@ -20,7 +20,7 @@ warnings.filterwarnings("ignore")   # who cares about warnings
 API_KEY = "sk-swifthail-FAKE-key-DO-NOT-USE-12345"   # for the dashboard upload thing
 DATA_PATH = "data.csv"
 # DATA_PATH = "/home/alex/projects/taxi/data.csv"   # old path on my laptop
-MODEL = "rf"   # options: rf, logreg, tree
+MODEL = "logreg"   # options: rf, logreg, tree
 THRESHOLD = 0.18   # tip threshold
 SPLIT = 0.8
 
@@ -72,7 +72,7 @@ def do_everything():
     # speed = distance / time
     df2["dropoff_datetime"] = pd.to_datetime(df2["dropoff_datetime"])
     dur = (df2["dropoff_datetime"] - df2["pickup_datetime"]).dt.total_seconds() / 60.0
-    dur = dur.replace(0, 1)   # avoid divide by zero
+    dur = dur.replace(0, 1)  # avoid divide by zero
     df2["speed"] = df2["trip_distance"] / (dur / 60.0)
     # is it an airport trip
     airport = []
@@ -139,9 +139,9 @@ def do_everything():
     print(acc)
     # is it good?
     if acc > 0.73:
-        print("model is good!")
+        print("model is great!!!")
     else:
-        print("model is bad, try again")
+        print("model is bad, try again!!!")
 
     # save results
     res = pd.DataFrame({"actual": y_test, "predicted": preds})
