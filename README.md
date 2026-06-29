@@ -2,7 +2,30 @@
 
 predicts high tip trips for swifthail.
 
-## how to run
+## Git flow workflow
+
+### one-time: get the repo
+```
+git clone https://github.com/YOUR-ORG/taxiflow-class.git
+cd taxiflow-class
+```
+
+### always start a feature FROM develop, never main
+```
+git checkout develop
+git pull origin develop
+git checkout -b feature/<yourname>-<short-description>
+```
+e.g.  feature/alice-isolation-forest
+
+### ... do the work, then ...
+```
+git add .
+git commit -m "Add isolation-forest anomaly detector"
+git push -u origin feature/alice-isolation-forest
+```
+
+### how to run
 
 ```
 pip install -r requirements.txt
