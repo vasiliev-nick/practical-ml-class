@@ -102,14 +102,6 @@ Resolving that conflict cleanly is part of what I'm assessing.
 
 ---
 
-## Deliverable
+### Deadline
 
-Your `firstname-lastname-...` branch, pushed to this repository, with a green **Tests** check. That's it — no separate write-up required.
-
-**Do not merge your branch into `develop` or `main`.** Homework branches are graded in place; only the winning branch gets merged, by me.
-
----
-
-## How the winner is chosen
-
-I decide, by overall quality — with engineering hygiene as the floor. A clever feature with a messy commit history, a bad branch name, or a red Tests check will not win, however good the code is. Clean, disciplined work that meets the contract wins and gets merged into the real TaxiFlow.
+3 July, 23:59
