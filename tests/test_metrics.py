@@ -1,13 +1,14 @@
 import importlib
 import random
 import pytest
-from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 # Reference implementations ("oracle"). To add a metric, add it here too.
 ORACLE = {
     "precision": lambda yt, yp: float(precision_score(yt, yp, zero_division=0)),
     "recall":    lambda yt, yp: float(recall_score(yt, yp, zero_division=0)),
     "f1":        lambda yt, yp: float(f1_score(yt, yp, zero_division=0)),
+    "accuracy":  lambda yt, yp: float(accuracy_score(yt, yp)),
 }
 REQUIRED_KEYS = ("precision", "recall", "f1")
 
@@ -71,7 +72,7 @@ def test_known_case_by_hand():
 def test_matches_sklearn_oracle(seed):
     y_true, y_pred = _random_labels(50, seed)
     out = _compute(y_true, y_pred)
-    for key in REQUIRED_KEYS:
+    for key in ORACLE:
         expected = ORACLE[key](y_true, y_pred)
         assert out[key] == pytest.approx(expected, abs=1e-9), \
             f"'{key}' = {out[key]}, reference gives {expected} (seed={seed})"
