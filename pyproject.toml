@@ -1,0 +1,20 @@
+[project]
+name = "taxiflow"
+version = "0.1.0"
+description = "Predicts high-tip trips for SwiftHail"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
