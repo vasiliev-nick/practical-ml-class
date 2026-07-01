@@ -12,7 +12,9 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
+
+from metrics import compute_metrics
+
 import warnings
 warnings.filterwarnings("ignore")   # who cares about warnings
 
@@ -147,9 +149,12 @@ def do_everything():
     preds = m.predict(X_test)
 
     # ----- evaluate -----
-    acc = accuracy_score(y_test, preds)
-    print("accuracy:")
-    print(acc)
+    scores = compute_metrics(y_test, preds)
+    acc = scores["accuracy"]
+    print(f"accuracy:  {acc:.4f}")
+    print(f"precision: {scores['precision']:.4f}")
+    print(f"recall:    {scores['recall']:.4f}")
+    print(f"f1:        {scores['f1']:.4f}")
     # is it good?
     if acc > 0.73:
         print("model is good!")
