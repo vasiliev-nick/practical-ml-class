@@ -1,0 +1,18 @@
+[project]
+name = "practical-ml-class"
+version = "0.1.0"
+description = "Taxi Flow"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

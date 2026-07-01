@@ -1,15 +1,16 @@
 import importlib
 import random
 import pytest
-from sklearn.metrics import precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 # Reference implementations ("oracle"). To add a metric, add it here too.
 ORACLE = {
+    "accuracy": lambda yt, yp: float(accuracy_score(yt, yp)),
     "precision": lambda yt, yp: float(precision_score(yt, yp, zero_division=0)),
     "recall":    lambda yt, yp: float(recall_score(yt, yp, zero_division=0)),
     "f1":        lambda yt, yp: float(f1_score(yt, yp, zero_division=0)),
 }
-REQUIRED_KEYS = ("precision", "recall", "f1")
+REQUIRED_KEYS = ("accuracy", "precision", "recall", "f1")
 
 
 def _compute(y_true, y_pred):
