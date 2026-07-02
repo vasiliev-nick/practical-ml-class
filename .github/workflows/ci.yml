@@ -14,22 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with: { python-version: "3.11", cache: pip }
-      - run: pip install -r requirements.txt
-      - run: pip install pytest scikit-learn
-      - name: Run pytest
-        run: pytest -v        # no "|| true": a failure here is a real red X
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run pytest -v         # no "|| true": a failure here is a real red X
 
   smoke:
     name: Smoke test (does it run?)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with: { python-version: "3.11" }
-      - run: pip install -r requirements.txt
-      - run: python taxi_model_FINAL.py
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run python taxi_model_FINAL.py
 
   format:
     name: Format (black) — warning only

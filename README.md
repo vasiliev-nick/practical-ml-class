@@ -27,16 +27,33 @@ git push -u origin feature/alice-isolation-forest
 
 ### how to run
 
+** With uv **
+
+```
+uv run python taxi_model_FINAL.py
+```
+
+or with pip:
+
+
 ```
 pip install -r requirements.txt
 python taxi_model_FINAL.py
 ```
 
-makes a model. prints the accuracy.
+makes a model. prints accuracy, precision, recall, and F1.
+
+### how to test
+
+```
+uv run pytest
+```
+
 
 ## files
 
 - taxi_model_FINAL.py - the main one, run this
+- metrics.py - accuracy/precision/recall/f1 for the classifier
 - taxi_model_old.py - old, dont use
 - utils.py - helpers
 - test.py - tests
