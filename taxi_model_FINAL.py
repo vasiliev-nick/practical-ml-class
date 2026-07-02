@@ -9,10 +9,11 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from metrics import compute_metrics
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.tree import DecisionTreeClassifier
 import warnings
 warnings.filterwarnings("ignore")   # who cares about warnings
 
@@ -148,8 +149,15 @@ def do_everything():
 
     # ----- evaluate -----
     acc = accuracy_score(y_test, preds)
+    metrics = compute_metrics(y_test, preds)
     print("accuracy:")
     print(acc)
+    print("precision:")
+    print(metrics["precision"])
+    print("recall:")
+    print(metrics["recall"])
+    print("f1:")
+    print(metrics["f1"])
     # is it good?
     if acc > 0.73:
         print("model is good!")
