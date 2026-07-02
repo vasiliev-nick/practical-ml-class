@@ -28,6 +28,7 @@ git push -u origin feature/alice-isolation-forest
 ### how to run
 
 ** With uv **
+
 ```
 uv run python taxi_model_FINAL.py
 ```
@@ -41,6 +42,12 @@ python taxi_model_FINAL.py
 ```
 
 makes a model. prints the accuracy.
+
+
+** Test **
+```
+uv run pytest tests/test_metrics.py -v
+```
 
 ## files
 
