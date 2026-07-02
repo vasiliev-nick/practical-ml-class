@@ -1,7 +1,7 @@
 [project]
 name = "practical-ml-class"
 version = "0.1.0"
-description = "Add your description here"
+description = "taxi-flow"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -12,6 +12,11 @@ dependencies = [
     "scikit-learn>=1.7.2",
 ]
 
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
 
 [tool.pytest.ini_options]
 pythonpath = "."
